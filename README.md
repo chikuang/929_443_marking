@@ -22,7 +22,7 @@ Last update:
 **April 26, 2021**
 
 TODO
-* [] Script to check whether the last 8 characters in the submission are digits
-* [] Cleanup the files
-* [] Automatic separate files into 5 subfolder. This can be done (easily) using regular expression.
-* [] Fix the cleanup comment in each of the load scripts
+* [ ] Script to check whether the last 8 characters in the submission are digits
+* [ ] Cleanup the files
+* [ ] Automatic separate files into 5 subfolder. This can be done (easily) using regular expression.
+* [ ] Fix the cleanup comment in each of the load scripts
