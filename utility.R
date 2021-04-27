@@ -1,21 +1,20 @@
-setwd("~/../Desktop/Forecasting/443/")
+course_num <- readline(prompt="Enter course number: ")
+my_dir <- paste0("~/../Desktop/Forecasting/", course_num)
+
+setwd(my_dir)
 
 library(purrr)
 library(dplyr)
 library(readr)
-source("./load_S1_443.R")
-source("./../load_S2_443.R")
-source("./../load_S3_443.R")
-source("./../load_S4_443.R")
-source("./../load_S5_443.R")
-setwd("~/../Desktop/Forecasting/443/")
-S1 <- readRDS("./S1_result_443.Rds")
-S2 <- readRDS("./S2_result_443.Rds")
-S3 <- readRDS("./S3_result_443.Rds")
-S4 <- readRDS("./S4_result_443.Rds")
-S5 <- readRDS("./S5_result_443.Rds")
+source("./load_S1.R")
+source("./load_S2.R")
+source("./load_S3.R")
+source("./load_S4.R")
+source("./load_S5.R")
+setwd(my_dir)
 
-df <- list(S1, S2, S3, S4, S5) %>% reduce(left_join, by = "id")
+df <- list(result_S1, result_S1, result_S1, result_S1, result_S1) %>% 
+  reduce(left_join, by = "id")
 
 N_submission <- nrow(df)
 # If missing submission, then rank then the last in class
@@ -27,10 +26,10 @@ df_temp <-
          rank_S5 = ifelse(is.na(rank_S5), N_submission, rank_S5),
          id = as.double(id)) 
 
-df_final_443 <- df_temp %>% 
+df_final <- df_temp %>% 
   mutate(rank_avg = rowMeans(dplyr::select(df_temp, starts_with("rank_")), 
                                  na.rm = T)) %>% 
   arrange(rank_avg) %>% mutate(rank_final = dense_rank(rank_avg))
 
-read_csv("./443_list.csv") %>% left_join(df_final_443, by = "id") %>% 
-  write_csv("./443_result.csv")
+read_csv(paste0("./",  course_num, "_list.csv")) %>% left_join(df_final, by = "id") %>% 
+  write_csv(paste0("./", course_num, "_result.csv"))
