@@ -1,15 +1,28 @@
 # 929_443_marking
-Script for marking 929 Time series and 443 Forecasting at the University of Waterloo
-Instructor: Prof. Gregory Rice
+Script for marking [Stat 929 (Theoretical) Time series](https://uwflow.com/course/stat929) and [Stat 443 Forecasting](https://uwflow.com/course/stat443) at the [University of Waterloo](https://uwaterloo.ca/)
 
-Each script is corresponding to each of the five scenarios.
+Instructor: Prof. [Gregory Rice](https://uwaterloo.ca/statistics-and-actuarial-science/people-profiles/greg-rice)
 
-Utilities function complies all five scenario and save them into a csv file altogether.
+TA: Chi-Kuang Yeh
 
-Requirement: 
-1. 5 Folders that contains submissions of each scenario that are of **csv** format
-2. The name of the csv file ends up with the student number. At UWaterloo, student number are **8** digits.
+# Description
+Each script corresponds to one scenario in the forecasting competition.
+
+Utility function complies with all five scenarios and saves them into a CSV file altogether.
+
+## Setup
+1. 5 Folders that contains submissions of each scenario that are of **CSV** format
+2. The name of the CSV file ends up with the student number. At UWaterloo, student numbers are **8** digits.
 3. DO NOT include column/row names in the submission.
 
-Last update
-**April 25, 2021**
+## NOTE
+Files with 929 in their name will likely be removed as there were the experimental units.
+
+Last update:
+**April 26, 2021**
+
+TODO
+* [] Script to check whether the last 8 characters in the submission are digits
+* [] Cleanup the files
+* [] Automatic separate files into 5 subfolder. This can be done (easily) using regular expression.
+* [] Fix the cleanup comment in each of the load scripts
